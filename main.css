@@ -1,0 +1,191 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: roboto, sans-serif;
+}
+
+.container{
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+header{
+    padding: 16px 0 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 26px;
+}
+
+.submenu{
+    border: 1px solid red;
+    display: none;
+    position: absolute; /*quando hover para nao deslloca o elemento ul */
+    left:0; /*para nao ultrapassar a li e acabar invadindo ao lado*/
+    width: 300px;
+    top: 100%; /*inicia o menu depois q termina o elemento*/
+    background-color: #fff;
+}
+
+.menu > li{
+    list-style: none;
+    padding: 16px;
+    border-top: 4px solid transparent;
+    float: left; /*trás um elemento para o lado do outro*/
+    position: relative; /* nao ultrapassa o menu ao lado*/
+}
+
+.clear{
+    clear: both;
+}
+
+.menu li:hover .submenu{
+    display: block;
+}
+
+.menu li:hover{
+    border-color: red;
+}
+
+.submenu li {
+    display: block;
+    padding: 8px ;
+}
+
+.conteudo{
+    display: grid; /*divide o layout em colunas e linhas*/
+    grid-template-columns: 70% 30%; /*Divide as colunas com as respectivas porcentagens*/
+}
+
+.noticia img{
+    max-width: 100%;
+}
+
+.destaque{
+    margin-bottom: 56px;
+}
+
+.destaque .noticia a{
+    display: flex;
+    font-size: 2em;
+}
+
+.destaque .noticia img{
+    margin-right: 8px;
+}
+
+section h2{
+    margin-bottom: 32px;
+}
+
+aside{
+    padding-left: 40px;
+}
+
+aside .noticia{
+    margin-bottom: 24px;
+}
+
+.noticias{
+    display: grid;
+    grid-template-columns:  repeat(3, 32.6%);
+    column-gap: 1%; /*espaçamento entre as colunas*/
+    row-gap: 5%; /*espaçamento das linhas*/
+}
+
+@media screen and (max-width: 767px){
+    .conteudo{
+        display: block;
+    }
+
+    .container{
+        max-width: 90%;
+    }
+    
+    .destaque .noticia a{
+        display: block;
+        font-size: 1.5em;
+    }
+    
+    .destaque .noticia img{
+        margin-right: 0;
+    }
+
+    .noticias{
+        display: block;
+    }
+
+    .noticias .noticia{
+        margin-bottom: 32px;
+    }
+
+    aside{
+        padding-left: 0;
+    }
+
+    header div.container{
+        flex-direction: column; /* transforma a ordem dos itens de linha para colunas*/
+    }
+
+        
+    .submenu{
+        display: block;
+        width: 100%;
+        position: relative;
+        border: none;
+    }
+
+    .menu > li{
+        clear: both; /* remove o efeito do left*/
+    }
+
+    .submenu li {
+        display: block;
+        padding: 8px ;
+    }
+
+    .menu{
+        display:none
+    }
+
+    .botao-menu{
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    .botao-menu button{
+        padding: 8px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px){
+    .container{
+        max-width: 90%;
+    }
+
+    .botao-menu{
+        display: none;
+    }
+
+    .destaque .noticia a{
+        font-size: 1.5em;
+    }
+
+    .noticias{
+        grid-template-columns: repeat(2,49%);
+    }
+}
+
+@media screen and (min-width:1024px){
+    .botao-menu button{
+        display: none;
+    }
+}
